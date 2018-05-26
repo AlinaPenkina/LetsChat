@@ -8,7 +8,7 @@
       "hostname": "LetsChat",
       "template": "letschat@03d6533f-0bb4-42cb-8186-9e3550e7ed4a",
       "peer-criteria": "HTTP-GROUP",
-      "size": "${webContainerType}",
+      "size": "${webContainerType}"
 	     }
 		
             "port-mapping": [
