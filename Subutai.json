@@ -1,9 +1,8 @@
-# LetsChat
 {
     "name": "${environmentName}",
     "description": "Lets Chat",
-	"version": "1.0.0,
-         "author": "Alina",
+    "version": "1.0.0",
+    "author": "Alina",
     "containers": [
         {
             "hostname": "${webContainerName}",
