@@ -1,0 +1,74 @@
+# LetsChat
+{
+    "name": "${environmentName}",
+    "description": "Lets Chat",
+	"version": "1.0.0,
+         "author": "Alina",
+    "containers": [
+        {
+            "hostname": "${webContainerName}",
+            "template": "debian-stretch",
+            "peer-criteria": "HTTP-GROUP",
+            "size": "${webContainerSize}",
+		
+            "port-mapping": [
+                {
+                "protocol": "http",
+                "domain": "${domainName}",
+                "internal-port": "80",
+                "external-port": "5000"
+                }
+	]
+}
+    ],
+	"peer-criteria":[{
+		
+        "name": "HTTP-GROUP",
+        "max-price": "${maxPeersPrice}"
+        }
+ ],
+   "ansible-configuration": {
+	     "source-url": "https://github.com/AlinaPenkina/Jenkins/archive/master.zip",
+        "ansible-playbook": "ansible-playbook.yml",
+        "groups": [
+            {
+                "name": "Lets_Chat",
+                "hostnames": [
+                    "${webContainerName}"
+                ]
+            }
+        ]
+    },
+    "user-variables": {
+        "environmentName": {
+            "description": "Enter the environment name",
+            "type": "string",
+            "default": "Letschat",
+            "validation": "[a-zA-Z0-9]+"
+          },
+	    "maxPeersPrice":{
+	    "description": "Enter max peers price",
+	    "type": "int",
+	    "default": "100",
+	    "validation": "[0-9]+"
+	    },
+          "domainName": {
+            "description": "Enter the application domain name",
+            "type": "domain",
+            "default": "Enter the domain name",
+            "validation": "[a-zA-Z0-9]+"
+          },
+          "webContainerName": {
+            "description": "Enter the container's hostname",
+            "type": "string",
+            "default": "Jenkins",
+            "validation": "[a-zA-Z0-9]+"
+          },
+          "webContainerSize": {
+            "description": "Set the container size to SMALL, MEDIUM, LARGE or HUGE",
+            "type": "enum",
+            "default": "SMALL",
+            "validation": "SMALL,MEDIUM,LARGE,HUGE"
+          }
+    }
+}
