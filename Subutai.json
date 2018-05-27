@@ -3,22 +3,21 @@
     "description": "Lets Chat",
     "version": "1.0.0",
     "author": "Alina",
-    "containers": [
-	     {
-      "hostname": "LetsChat",
-      "template": "letschat@03d6533f-0bb4-42cb-8186-9e3550e7ed4a",
-      "peer-criteria": "HTTP-GROUP",
-      "size": "${webContainerType}"
-		
+   "containers": [
+        {
+            "hostname": "${webContainerName}",
+            "template": "letschat@03d6533f-0bb4-42cb-8186-9e3550e7ed4a",
+            "peer-criteria": "HTTP-GROUP",
+            "size": "${containerSize}",
             "port-mapping": [
                 {
-                "protocol": "http",
-                "domain": "${domainName}",
-                "internal-port": "80",
-                "external-port": "5000"
+                    "protocol": "http",
+                    "domain": "${domainName}",
+                    "internal-port": "80",
+                    "external-port": "80"
                 }
-	]
-}
+            ]
+        }
     ],
 	"peer-criteria":[
 	{	
