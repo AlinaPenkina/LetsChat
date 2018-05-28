@@ -52,7 +52,7 @@
           "webContainerName": {
             "description": "Enter the container's hostname",
             "type": "string",
-            "default": "Jenkins",
+            "default": "LetsChat",
             "validation": "[a-zA-Z0-9]+"
           },
           "webContainerSize": {
