@@ -6,7 +6,7 @@
    "containers": [
         {
             "hostname": "${webContainerName}",
-            "template": "letschat@03d6533f-0bb4-42cb-8186-9e3550e7ed4a",
+            "template": "debian-stretch",
             "peer-criteria": "HTTP-GROUP",
             "size": "${webContainerSize}",
             "port-mapping": [
@@ -21,8 +21,7 @@
     ],
 	"peer-criteria":[
 	{	
-        "name": "HTTP-GROUP",
-        "max-price": "${maxPeersPrice}"
+        "name": "HTTP-GROUP"
         }
  ],
    "ansible-configuration": {
@@ -44,12 +43,6 @@
             "default": "Letschat",
             "validation": "[a-zA-Z0-9]+"
           },
-	    "maxPeersPrice":{
-	    "description": "Enter max peers price",
-	    "type": "int",
-	    "default": "100",
-	    "validation": "[0-9]+"
-	    },
           "domainName": {
             "description": "Enter the application domain name",
             "type": "domain",
