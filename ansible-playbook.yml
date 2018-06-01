@@ -5,3 +5,14 @@
   tasks:
   - name: Install sudo
     raw: apt install sudo
+  - name: Update the system
+    raw: sudo apt-get update && sudo apt-get -y upgrade
+  - name: Install software properties
+    raw: sudo apt-get install software-properties-common git build-essential
+  - name: Install curl
+    raw: apt install curl
+  - name: Get a source
+    raw: curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+  - name: Install node.js
+    raw: apt install nodejs 
+  
